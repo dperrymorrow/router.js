@@ -4,24 +4,24 @@
 
 ## example 1 with a nested package
 
-  script type="text/javascript" charset="utf-8">
-    window.routerConfig = {namespace:'dpm',defaultPage:'AppPage',route:'admin/other_items/index'};
-  </script>
+    <script type="text/javascript" charset="utf-8">
+      window.routerConfig = {namespace:'dpm',defaultPage:'AppPage',route:'admin/other_items/index'};
+    </script>
   
   
-  <script src="dpm/app_page.js" type="text/javascript" charset="utf-8"></script>
-  <script src="dpm/admin/other_items_.js" type="text/javascript" charset="utf-8"></script>
-  <script src="../router.js" type="text/javascript" charset="utf-8"></script>
+    <script src="dpm/app_page.js" type="text/javascript" charset="utf-8"></script>
+    <script src="dpm/admin/other_items_.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../router.js" type="text/javascript" charset="utf-8"></script>
   
 ### this would instantiate window.dpm.admin.OtherItems javascript class, and fire the index method on that class  
 
 ## example 2 just a controller action example
 
-  script type="text/javascript" charset="utf-8">
-    window.routerConfig = {namespace:'dpm',defaultPage:'AppPage',route:'admin/other_items/index'};
-  </script>
+    <script type="text/javascript" charset="utf-8">
+      window.routerConfig = {namespace:'dpm',defaultPage:'AppPage',route:'admin/other_items/index'};
+    </script>
   
   
-  <script src="dpm/app_page.js" type="text/javascript" charset="utf-8"></script>
-  <script src="dpm/items.js" type="text/javascript" charset="utf-8"></script>
-  <script src="../router.js" type="text/javascript" charset="utf-8"></script>
+    <script src="dpm/app_page.js" type="text/javascript" charset="utf-8"></script>
+    <script src="dpm/items.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../router.js" type="text/javascript" charset="utf-8"></script>
