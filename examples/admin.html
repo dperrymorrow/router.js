@@ -2,18 +2,12 @@
 <head>
   <meta http-equiv="Content-type" content="text/html; charset=utf-8">
   <title>Router Example</title>
-  
-  <script type="text/javascript" charset="utf-8">
-    window.routerConfig = {namespace:'dpm',defaultPage:'AppPage',route:'admin/other_items/index'};
-  </script>
-  
-  
   <script src="dpm/app_page.js" type="text/javascript" charset="utf-8"></script>
   <script src="dpm/admin/other_items.js" type="text/javascript" charset="utf-8"></script>
   <script src="../router.js" type="text/javascript" charset="utf-8"></script>
-  
-  
-  
+  <script type="text/javascript" charset="utf-8">
+    window.router = new window.Router('admin/other_items/index','dpm','AppPage');
+  </script>
 </head>
 <body>
   <h1>View the console to see the results</h1>
