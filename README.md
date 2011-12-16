@@ -29,7 +29,7 @@ the above would instantiate window.dpm.admin.Items javascript class, and fire th
 ````
 
 ## Example use with Ruby On Rails, just put this script at the end of your layout and the router will instantiate the proper javascript class and fire the correlating action.
-````erb
+````html
 <script type="text/javascript" charset="utf-8">
   window.router = new window.Router(<%= "#{params[:controller]}/#{params[:action]}" %>, dpm, 'AppPage');
 </script>
