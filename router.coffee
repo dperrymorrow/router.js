@@ -1,31 +1,29 @@
-class window.Router
+window.dpm ?= {}
+class dpm.Router
 
-  constructor:(@route, @name_space, @default_page)->
-    window[@name_space] ?= {}
-    arr = @route.split '/'
+  constructor:(route, name_space, default_page)->
+    @route_page(route, name_space, default_page)
 
-    if arr.length > 2
-      package = arr[0]
-      ctrl = arr[1]
-      action = arr[2]
-      ctrl = @humanize( ctrl )
+  route_page:(@route, @name_space, @default_page)->
+    @route = @route.replace(/^\/|\/$/g, '')
+    @name_space = window if !@name_space
+    @segments = @route.split('/').length
 
-      if window[@name_space][package][ctrl] != undefined
-        window[@name_space].page = new window[@name_space][package][ctrl]()
-        window[@name_space].page[action]()
-      else
-        window[@name_space].page = new window[@name_space][@default_page]()
+    if @segments > 2
+      [pkg, ctrl, action] = @route.split '/'
+      ctrl = @humanize ctrl
+      @route_class = @name_space[pkg][ctrl] if @name_space[pkg]
 
     else
-      ctrl = arr[0]
-      action = arr[1]
-      ctrl = @humanize( ctrl )
+      [ctrl, action] = @route.split '/'
+      ctrl = @humanize ctrl
+      @route_class = @name_space[ctrl]
 
-      if window[@name_space][ctrl] != undefined
-        window[@name_space].page = new window[@name_space][ctrl]()
-        window[@name_space].page[action]()
-      else
-        window[@name_space].page = new window[@name_space][@default_page]()
+    if @route_class
+      @name_space.page = new @route_class()
+      @name_space.page[action]() if typeof @name_space.page[action] == 'function'
+    else
+      @name_space.page = new @default_page() if @default_page
 
   # private helper methods
   humanize:(string)->
@@ -34,7 +32,7 @@ class window.Router
     if arr.length > 0
       for word in arr
         humanized += @capitalize word
-    else 
+    else
       humanized = @capitalize string
     humanized
 

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<head>
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+  <title>Router Example</title>
+
+  <script type="text/javascript" charset="utf-8">
+    // example classes for example only, these would normally be incluced externally
+    var project_namespace = {admin:{}};
+    project_namespace.admin.TestController = function(){
+      this.index = function(){ alert("project_namespace.TestController.index()"); }
+    }
+  </script>
+
+  <script src="../router.js" type="text/javascript" charset="utf-8"></script>
+  <script type="text/javascript" charset="utf-8">
+    new dpm.Router('admin/test_controller/index', project_namespace);
+  </script>
+</head>
+<body>
+</body>
+</html>

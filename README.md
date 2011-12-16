@@ -13,6 +13,10 @@ This allows you to include your js files and it will instantiate the correct jav
 ````
 the above would instantiate window.dpm.admin.Items javascript class, and fire the index method on that class
 
+- the controller url will be modified to *ControllerName* from *controller\_name*
+- Namepsace is optional, just omit or pass in Null, and Router will use window as the namespace.
+- Default Page is also optional, if you omit nothing will be instantiated if no Class.action match is found.
+
 ## example 2 a controller action example
 
 ````html
@@ -20,12 +24,23 @@ the above would instantiate window.dpm.admin.Items javascript class, and fire th
 <script src="dpm/items.js" type="text/javascript" charset="utf-8"></script>
 <script src="../router.js" type="text/javascript" charset="utf-8"></script>
 <script type="text/javascript" charset="utf-8">
-  window.router = new window.Router('items/index','dpm','AppPage');
+  window.router = new window.Router('items/index', dpm, 'AppPage');
 </script>
 ````
+
 ## Example use with Ruby On Rails, just put this script at the end of your layout and the router will instantiate the proper javascript class and fire the correlating action.
-````html
+````erb
 <script type="text/javascript" charset="utf-8">
-  window.router = new window.Router(<%= "#{params[:controller]}/#{params[:action]}",'dpm','AppPage');
+  window.router = new window.Router(<%= "#{params[:controller]}/#{params[:action]}" %>, dpm, 'AppPage');
 </script>
 ````
+
+## check out the tests directory...
+
+## MIT licensed:
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
