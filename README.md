@@ -8,7 +8,7 @@ This allows you to include your js files and it will instantiate the correct jav
 <script src="dpm/admin/other_items_.js" type="text/javascript" charset="utf-8"></script>
 <script src="../router.js" type="text/javascript" charset="utf-8"></script>
 <script type="text/javascript" charset="utf-8">
-  window.router = new window.Router('admin/items/index','dpm','AppPage');
+  window.router = new window.Router('admin/items/index', dpm, dpm.AppPage);
 </script>
 ````
 the above would instantiate window.dpm.admin.Items javascript class, and fire the index method on that class
@@ -24,14 +24,14 @@ the above would instantiate window.dpm.admin.Items javascript class, and fire th
 <script src="dpm/items.js" type="text/javascript" charset="utf-8"></script>
 <script src="../router.js" type="text/javascript" charset="utf-8"></script>
 <script type="text/javascript" charset="utf-8">
-  window.router = new window.Router('items/index', dpm, 'AppPage');
+  window.router = new window.Router('items/index', dpm, dpm.AppPage);
 </script>
 ````
 
 ## Example use with Ruby On Rails, just put this script at the end of your layout and the router will instantiate the proper javascript class and fire the correlating action.
 ````html
 <script type="text/javascript" charset="utf-8">
-  window.router = new window.Router(<%= "#{params[:controller]}/#{params[:action]}" %>, dpm, 'AppPage');
+  window.router = new window.Router('<%= "#{params[:controller]}/#{params[:action]}" %>', dpm, dpm.AppPage);
 </script>
 ````
 
